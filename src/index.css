@@ -3,15 +3,15 @@
 
 @font-face {
   font-family: 'Manrope-Regular';
-  src: url('./assets/fonts/Manrope-Regular.ttf');
+  src: url('/fonts/Manrope-Regular.ttf');
 }
 @font-face {
   font-family: 'Manrope-Medium';
-  src: url('./assets/fonts/Manrope-Medium.ttf');
+  src: url('/fonts/Manrope-Medium.ttf');
 }
 @font-face {
   font-family: 'Manrope-Bold';
-  src: url('./assets/fonts/Manrope-Bold.ttf');
+  src: url('/fonts/Manrope-Bold.ttf');
 }
 
 @theme {

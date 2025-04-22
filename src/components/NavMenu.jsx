@@ -1,4 +1,4 @@
-import HamburgerIcon from '/shared/desktop/icon-hamburger.svg';
+import HamburgerIcon from '/shared/tablet/icon-hamburger.svg';
 import Logo from '/shared/desktop/logo.svg';
 import IconCart from '/shared/desktop/icon-cart.svg';
 import { useNavigate, Link } from 'react-router';
