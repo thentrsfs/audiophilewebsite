@@ -33,7 +33,7 @@ Users should be able to:
 
 ### Screenshot
 
-![](./awebsite.png)
+![](./public/awebsite.png)
 
 ### Links
 
