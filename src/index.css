@@ -1,0 +1,115 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+@font-face {
+  font-family: 'Manrope-Regular';
+  src: url('./assets/fonts/Manrope-Regular.ttf');
+}
+@font-face {
+  font-family: 'Manrope-Medium';
+  src: url('./assets/fonts/Manrope-Medium.ttf');
+}
+@font-face {
+  font-family: 'Manrope-Bold';
+  src: url('./assets/fonts/Manrope-Bold.ttf');
+}
+
+@theme {
+
+  /* Colors */
+  --color-orange-dark: #D87D4A;
+  --color-orange-light: #FBAF85;
+  --color-black-light: #101010;
+  --color-black-hover: rgba(60, 60, 60, 1);
+  --color-gray-light: #F1F1F1;
+  --color-gray-lighter: #FAFAFA;
+  --color-gray-darker: #979797;
+  --color-gray-dark: #CFCFCF;
+  --color-white-dark: #F2F2F2;
+  --color-error-red: #CD2C2C;
+
+  /* Fonts */
+  --font-manrope: 'Manrope-Regular';
+  --font-manrope-medium: 'Manrope-Medium';
+  --font-manrope-bold: 'Manrope-Bold';
+}
+
+@layer base {
+
+  body {
+    @apply font-manrope
+  }
+  
+}
+
+@layer utilities {
+  /* Typography */
+
+  .h1 {
+    @apply font-manrope-bold text-[56px] uppercase leading-[58px] tracking-[2px]
+  }
+  .h2{
+    @apply font-manrope-bold text-[40px] uppercase leading-[44px] tracking-[1.5px]
+  }
+  .h3{
+    @apply font-manrope-bold text-[32px] uppercase leading-[36px] tracking-[1.15px]
+  }
+  .h4{
+    @apply font-manrope-bold text-[28px] uppercase leading-[38px] tracking-[2px]
+  }
+  .h4-mobile{
+    @apply font-manrope-bold text-[28px] uppercase tracking-[1px]
+  }
+  .h5{
+    @apply font-manrope-bold text-[24px] uppercase leading-[33px] tracking-[1.7px]
+  }
+  .h5-mobile{
+    @apply font-manrope-bold text-[24px] uppercase leading-[36px] tracking-[0.86px]
+  }
+  .h6{
+    @apply font-manrope-bold text-[18px] uppercase leading-[24px] tracking-[1.3px]
+  }
+  .h6-mobile{
+    @apply font-manrope-bold text-[15px] uppercase tracking-[1.07px]
+  }
+  .overline-text{
+    @apply text-[14px] uppercase leading-[19px] tracking-[10px]
+  }
+  .subtitle{
+    @apply font-manrope-bold text-[13px] leading-[25px] tracking-[1px]
+  }
+  .footer-nav{
+    @apply font-manrope-bold text-[13px] leading-[25px]  uppercase tracking-[2px]
+  }
+  .body {
+    @apply font-manrope-medium text-[15px] leading-[25px]
+  }
+  .input-mobile{
+    @apply font-manrope-bold text-[14px] tracking-[-0.25px]
+  }
+  .label-mobile{
+    @apply font-manrope-bold text-[12px] tracking-[-0.21px]
+  }
+  .custom-footer-header{
+    @apply text-[28px] tracking-[1px]  md:py-5 md:text-[40px] md:leading-[44px] md:tracking-[1.43px] font-manrope-bold uppercase 
+  }
+
+/* Media Queries */
+
+/* Mobile */
+
+ @media (max-width: 767px) {
+    .h1{
+      @apply font-manrope-bold text-[36px] uppercase leading-[40px] tracking-[1.29px]
+    }
+    .h2{
+      @apply font-manrope-bold text-[28px] uppercase tracking-[1px]
+    }
+    .h3{
+      @apply font-manrope-bold text-[24px] leading-[36px] uppercase tracking-[0.86px] 
+    }
+   
+  }
+
+}
+
