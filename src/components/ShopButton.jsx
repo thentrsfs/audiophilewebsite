@@ -1,4 +1,4 @@
-import ArrowIcon from '/src/assets/shared/desktop/icon-arrow-right.svg';
+import ArrowIcon from '/shared/desktop/icon-arrow-right.svg';
 import { useNavigate } from 'react-router';
 const ShopButton = ({ link, setIsOpen }) => {
 	const navigateTo = useNavigate();

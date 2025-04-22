@@ -3,7 +3,7 @@ import TextInput from '../components/TextInput';
 import RadioInput from '../components/RadioInput';
 import CartContext from '../context/CartContext';
 import FormContext from '../context/FormContext';
-import CashIcon from '../assets/checkout/icon-cash-on-delivery.svg';
+import CashIcon from '/checkout/icon-cash-on-delivery.svg';
 import PaymentSuccess from '../components/PaymentSuccess';
 import { useContext } from 'react';
 import ScrollToTop from '../components/ScrollToTop';

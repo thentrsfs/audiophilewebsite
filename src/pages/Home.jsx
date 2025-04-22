@@ -11,10 +11,9 @@ const Home = () => {
 	const { width, imageType } = useContext(CartContext);
 
 	const backgroundImage = () => {
-		if (width >= 768 && width < 1024)
-			return '/src/assets/home/tablet/image-header.jpg';
-		else if (width >= 1024) return '/src/assets/home/desktop/image-hero.jpg';
-		else return '/src/assets/home/mobile/image-header.jpg';
+		if (width >= 768 && width < 1024) return '/home/tablet/image-header.jpg';
+		else if (width >= 1024) return '/home/desktop/image-hero.jpg';
+		else return '/home/mobile/image-header.jpg';
 	};
 
 	return (
@@ -44,7 +43,7 @@ const Home = () => {
 				<div className='bg-orange-dark rounded-md flex max-lg:flex-col items-center justify-between lg:justify-around max-lg:pb-12 max-lg:pt-15 max-lg:text-center lg:px-12 h-[600px] text-white relative overflow-hidden'>
 					<PatternCircles />
 					<img
-						src={`src/assets/home/${imageType}/image-speaker-zx9.png`}
+						src={`/home/${imageType}/image-speaker-zx9.png`}
 						alt='zx9 speaker'
 						className='w-38 lg:w-100 lg:pt-38 z-20'
 					/>
@@ -65,7 +64,7 @@ const Home = () => {
 				</div>
 				<div className='relative'>
 					<img
-						src={`src/assets/home/${imageType}/image-speaker-zx7.jpg`}
+						src={`/home/${imageType}/image-speaker-zx7.jpg`}
 						alt='zx7 speaker'
 						className='rounded-md w-full'
 					/>
@@ -82,7 +81,7 @@ const Home = () => {
 				</div>
 				<div className='flex max-md:flex-col gap-6 lg:gap-8 md:gap-3'>
 					<img
-						src={`src/assets/home/${imageType}/image-earphones-yx1.jpg`}
+						src={`/home/${imageType}/image-earphones-yx1.jpg`}
 						alt='yx1 earphones'
 						className='rounded-md md:h-[320px] h-[200px] w-full'
 					/>
@@ -102,7 +101,7 @@ const Home = () => {
 			</div>
 			<div className='px-5 pb-24 md:px-8 lg:px-35 lg:pt-20 lg:pb-45 flex lg:flex-row-reverse lg:items-center max-lg:flex-col gap-8 max-lg:text-center'>
 				<img
-					src={`/src/assets/shared/${imageType}/image-best-gear.jpg`}
+					src={`/shared/${imageType}/image-best-gear.jpg`}
 					alt='best gear image'
 					className='rounded-md'
 				/>

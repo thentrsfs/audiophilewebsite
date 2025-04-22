@@ -8,19 +8,17 @@ const CategoryMenu = () => {
 		{
 			id: 1,
 			name: 'headphones',
-			image:
-				'/src/assets/shared/desktop/image-category-thumbnail-headphones.png',
+			image: '/shared/desktop/image-category-thumbnail-headphones.png',
 		},
 		{
 			id: 2,
 			name: 'speakers',
-			image: '/src/assets/shared/desktop/image-category-thumbnail-speakers.png',
+			image: '/shared/desktop/image-category-thumbnail-speakers.png',
 		},
 		{
 			id: 3,
 			name: 'earphones',
-			image:
-				'/src/assets/shared/desktop/image-category-thumbnail-earphones.png',
+			image: '/shared/desktop/image-category-thumbnail-earphones.png',
 		},
 	];
 	return (

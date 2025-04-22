@@ -1,4 +1,4 @@
-import ConfirmationIcon from '../assets/checkout/icon-order-confirmation.svg';
+import ConfirmationIcon from '/checkout/icon-order-confirmation.svg';
 import PrimaryButton from './PrimaryButton';
 import { useNavigate } from 'react-router';
 

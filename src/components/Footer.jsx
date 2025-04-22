@@ -1,4 +1,4 @@
-import Logo from '/src/assets/shared/desktop/logo.svg';
+import Logo from '/shared/desktop/logo.svg';
 import Twitter from './Twitter';
 import Facebook from './Facebook';
 import Instagram from './Instagram';

@@ -143,7 +143,7 @@ const ProductDetail = () => {
 			</div>
 			<div className='px-5 pb-24 md:px-8 lg:px-35 lg:pt-20 lg:pb-45 flex lg:flex-row-reverse lg:items-center max-lg:flex-col gap-8 max-lg:text-center'>
 				<img
-					src={`/src/assets/shared/${imageType}/image-best-gear.jpg`}
+					src={`/shared/${imageType}/image-best-gear.jpg`}
 					alt='best gear image'
 					className='rounded-md'
 				/>
