@@ -10,6 +10,7 @@ const NavMenu = () => {
 		useContext(CartContext);
 	const navigateTo = useNavigate();
 
+	// Go to homepage
 	const navigate = () => {
 		setIsOpen(false);
 		navigateTo('/');

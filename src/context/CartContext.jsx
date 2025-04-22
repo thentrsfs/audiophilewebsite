@@ -3,6 +3,7 @@ import { createContext, useEffect, useState } from 'react';
 const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
+	// Initialize cart
 	const [cart, setCart] = useState(() => {
 		if (typeof window !== 'undefined') {
 			const storedCart = localStorage.getItem('cart');
@@ -11,10 +12,25 @@ export const CartProvider = ({ children }) => {
 		return [];
 	});
 
+	// State variables
+	const [isOpen, setIsOpen] = useState(false);
+	const [isCartOpen, setIsCartOpen] = useState(false);
+	const [checkout, setCheckout] = useState(false);
+
+	// Calculate total price
+	const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+
+	// Calculate grand total
+	const vat = Math.floor(total * 0.2);
+	const grandTotal = total + 50;
+
+	// Get the width of the window
 	const [width, setWidth] = useState(window.innerWidth);
 
+	// Get the image type based on the window width so that we can use the correct image
 	const [imageType, setImageType] = useState('mobile');
 
+	// Add an event listener to update the width when the window is resized and set the image type
 	useEffect(() => {
 		const handleResize = () => setWidth(window.innerWidth);
 		window.addEventListener('resize', handleResize);
@@ -25,18 +41,12 @@ export const CartProvider = ({ children }) => {
 		return () => window.removeEventListener('resize', handleResize);
 	}, [width]);
 
+	// Save cart to local storage
 	useEffect(() => {
 		localStorage.setItem('cart', JSON.stringify(cart));
 	}, [cart]);
-	const [isOpen, setIsOpen] = useState(false);
-	const [isCartOpen, setIsCartOpen] = useState(false);
-	const [checkout, setCheckout] = useState(false);
 
-	const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
-
-	const vat = Math.floor(total * 0.2);
-	const grandTotal = total + 50;
-
+	// Add product to cart
 	const addToCart = (product, quantity = 1) => {
 		setCart((prevCart) => {
 			const existingItem = prevCart.find((item) => item.id === product.id);
@@ -51,10 +61,12 @@ export const CartProvider = ({ children }) => {
 		});
 	};
 
+	// Remove product from cart
 	const removeFromCart = () => {
 		setCart([]);
 	};
 
+	// Update quantity of a product
 	const updateQuantity = (id, newQuantity) => {
 		setCart((prevCart) =>
 			newQuantity <= 0

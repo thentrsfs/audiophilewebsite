@@ -8,14 +8,8 @@ import PaymentSuccess from '../components/PaymentSuccess';
 import { useContext } from 'react';
 import ScrollToTop from '../components/ScrollToTop';
 const CheckoutPage = () => {
-	const {
-		cart,
-		total,
-
-		removeFromCart,
-		vat,
-		grandTotal,
-	} = useContext(CartContext);
+	const { cart, total, removeFromCart, vat, grandTotal } =
+		useContext(CartContext);
 
 	const {
 		handleChange,

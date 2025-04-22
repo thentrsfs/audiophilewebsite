@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router';
 
 const PaymentSuccess = ({ cart, grandTotal, setIsPaid, removeFromCart }) => {
 	const navigate = useNavigate();
+
+	// Go to homepage and clear cart
 	const handleBackToHome = () => {
 		setIsPaid(false);
 		navigate('/');

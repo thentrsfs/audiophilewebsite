@@ -3,10 +3,7 @@ import { createContext, useState } from 'react';
 const FormContext = createContext();
 
 export const FormProvider = ({ children }) => {
-	const [paymentMethod, setPaymentMethod] = useState('emoney');
-	const handlePaymentChange = (e) => {
-		setPaymentMethod(e.target.value);
-	};
+	// Initial form data
 	const initialFormData = {
 		name: '',
 		email: '',
@@ -18,10 +15,20 @@ export const FormProvider = ({ children }) => {
 		emoneyNum: '',
 		emoneyPin: '',
 	};
+
+	// State variables
+	const [paymentMethod, setPaymentMethod] = useState('emoney');
 	const [submitted, setSubmitted] = useState(false);
 	const [isPaid, setIsPaid] = useState(false);
 	const [errors, setErrors] = useState({});
 	const [formData, setFormData] = useState(initialFormData);
+
+	// Set payment method
+	const handlePaymentChange = (e) => {
+		setPaymentMethod(e.target.value);
+	};
+
+	// Format phone number
 	const formatPhone = (value) => {
 		// Remove all non-digit characters
 		const digits = value.replace(/\D/g, '');
@@ -37,6 +44,7 @@ export const FormProvider = ({ children }) => {
 		return '+' + digits;
 	};
 
+	// Handle input changes
 	const handleChange = (e) => {
 		let { name, value } = e.target;
 		if (name === 'phone') {
@@ -52,6 +60,8 @@ export const FormProvider = ({ children }) => {
 			[name]: '',
 		}));
 	};
+
+	// Validate form
 	const validate = () => {
 		const newErrors = {};
 
@@ -73,6 +83,7 @@ export const FormProvider = ({ children }) => {
 		return newErrors;
 	};
 
+	// Handle form submit
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		const newErrors = validate();

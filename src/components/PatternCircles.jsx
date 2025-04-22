@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 const PatternCircles = () => {
+	// Get the width of the window
 	const [width, setWidth] = useState(window.innerWidth);
 
+	// Add an event listener to update the width when the window is resized
 	useEffect(() => {
 		const handleResize = () => setWidth(window.innerWidth);
 		window.addEventListener('resize', handleResize);

@@ -5,7 +5,9 @@ import CartContext from '../context/CartContext';
 import { useContext } from 'react';
 
 const CategoryPage = () => {
+	// Load data
 	const data = useLoaderData();
+
 	const { categoryName } = useParams();
 	const { setIsOpen, imageType } = useContext(CartContext);
 	const navigate = useNavigate();

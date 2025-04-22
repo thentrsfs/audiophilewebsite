@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router';
 const ShopButton = ({ link, setIsOpen }) => {
 	const navigateTo = useNavigate();
 
+	// Go to category page
 	const navigate = () => {
 		setIsOpen(false);
 		navigateTo(link);

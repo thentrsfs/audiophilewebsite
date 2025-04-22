@@ -7,11 +7,16 @@ import GoBackBtn from '../components/GoBackBtn';
 import { useContext, useState } from 'react';
 
 const ProductDetail = () => {
+	// Get the product
 	const product = useLoaderData();
+
 	const { addToCart, setIsOpen, imageType } = useContext(CartContext);
-	const [quantity, setQuantity] = useState(1);
 	const navigate = useNavigate();
 
+	// State variables
+	const [quantity, setQuantity] = useState(1);
+
+	// Add product to cart
 	const handleAddToCart = () => {
 		addToCart(product, quantity);
 		setQuantity(1);

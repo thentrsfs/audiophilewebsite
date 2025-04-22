@@ -13,14 +13,16 @@ const Cart = () => {
 	} = useContext(CartContext);
 
 	const navigate = useNavigate();
+
+	// Functions to increase and decrease quantity of an item in cart
 	const increaseQuantity = (item) => {
 		updateQuantity(item.id, item.quantity + 1);
 	};
-
 	const decreaseQuantity = (item) => {
 		updateQuantity(item.id, item.quantity - 1);
 	};
 
+	// Go to checkout
 	const checkoutHandler = () => {
 		setCheckout(true);
 		navigate('/checkout');

@@ -10,6 +10,7 @@ const Home = () => {
 
 	const { width, imageType } = useContext(CartContext);
 
+	// Change the background image depending on the screen size
 	const backgroundImage = () => {
 		if (width >= 768 && width < 1024) return '/home/tablet/image-header.jpg';
 		else if (width >= 1024) return '/home/desktop/image-hero.jpg';
