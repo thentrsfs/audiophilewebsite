@@ -29,7 +29,7 @@ const NavMenu = () => {
 		<div
 			className={`top-0 w-full z-21 ${
 				location.pathname == '/' ? 'bg-transparent absolute' : 'bg-black fixed'
-			} ${isCartOpen && 'lg:pr-[15px]'}`}>
+			} ${isCartOpen && location.pathname !== '/' && 'lg:pr-[15px]'}`}>
 			<div className='flex justify-between items-center px-6 md:px-8 lg:px-35 py-8 '>
 				<div className='flex items-center gap-8'>
 					<div className='lg:hidden'>

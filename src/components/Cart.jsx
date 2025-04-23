@@ -26,6 +26,7 @@ const Cart = () => {
 	const checkoutHandler = () => {
 		setCheckout(true);
 		navigate('/checkout');
+		closeModal();
 	};
 
 	const closeModal = () => {
