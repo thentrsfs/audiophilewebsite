@@ -14,8 +14,8 @@ export const CartProvider = ({ children }) => {
 
 	// State variables
 	const [isOpen, setIsOpen] = useState(false);
-	const [isCartOpen, setIsCartOpen] = useState(false);
 	const [checkout, setCheckout] = useState(false);
+	const [isCartOpen, setIsCartOpen] = useState(false);
 
 	// Calculate total price
 	const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
@@ -84,8 +84,6 @@ export const CartProvider = ({ children }) => {
 				removeFromCart,
 				isOpen,
 				setIsOpen,
-				isCartOpen,
-				setIsCartOpen,
 				updateQuantity,
 				total,
 				checkout,
@@ -94,6 +92,8 @@ export const CartProvider = ({ children }) => {
 				grandTotal,
 				imageType,
 				width,
+				isCartOpen,
+				setIsCartOpen,
 			}}>
 			{children}
 		</CartContext.Provider>

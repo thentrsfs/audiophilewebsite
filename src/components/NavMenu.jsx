@@ -1,12 +1,12 @@
 import HamburgerIcon from '/shared/tablet/icon-hamburger.svg';
 import Logo from '/shared/desktop/logo.svg';
-import IconCart from '/shared/desktop/icon-cart.svg';
-import { useNavigate, Link } from 'react-router';
+import CartIcon from './CartIcon';
+import { useNavigate, Link, useLocation } from 'react-router';
 import { useContext } from 'react';
 import CartContext from '../context/CartContext';
 
 const NavMenu = () => {
-	const { isOpen, setIsOpen, isCartOpen, setIsCartOpen } =
+	const { isOpen, setIsOpen, cart, isCartOpen, setIsCartOpen } =
 		useContext(CartContext);
 	const navigateTo = useNavigate();
 
@@ -16,8 +16,20 @@ const NavMenu = () => {
 		navigateTo('/');
 	};
 
+	// Handle modal
+	const openModal = () => {
+		document.getElementById('cart-modal')?.showModal();
+		setIsCartOpen(true);
+	};
+
+	// Get location
+	const location = useLocation();
+
 	return (
-		<div className='absolute top-0 w-full z-21'>
+		<div
+			className={`top-0 w-full z-21 ${
+				location.pathname == '/' ? 'bg-transparent absolute' : 'bg-black fixed'
+			} ${isCartOpen && 'lg:pr-[15px]'}`}>
 			<div className='flex justify-between items-center px-6 md:px-8 lg:px-35 py-8 '>
 				<div className='flex items-center gap-8'>
 					<div className='lg:hidden'>
@@ -64,12 +76,9 @@ const NavMenu = () => {
 						Earphones
 					</Link>
 				</ul>
-
-				<img
-					src={IconCart}
-					alt='icon cart'
-					className='w-[23px] h-[20px] cursor-pointer'
-					onClick={() => setIsCartOpen(!isCartOpen)}
+				<CartIcon
+					cart={cart}
+					openModal={openModal}
 				/>
 			</div>
 			<hr className=' text-gray-darker md:mx-8 lg:mx-35' />

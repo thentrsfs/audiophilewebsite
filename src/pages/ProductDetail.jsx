@@ -19,11 +19,17 @@ const ProductDetail = () => {
 
 	// State variables
 	const [quantity, setQuantity] = useState(1);
+	const [isAdded, setIsAdded] = useState(false);
 
 	// Add product to cart
 	const handleAddToCart = () => {
 		addToCart(product, quantity);
 		setQuantity(1);
+		setIsAdded(true);
+
+		setTimeout(() => {
+			setIsAdded(false);
+		}, 1000);
 	};
 
 	if (!product)
@@ -35,6 +41,7 @@ const ProductDetail = () => {
 	return (
 		<div className='overflow-hidden'>
 			<div className='bg-black w-full h-[90px]' />
+
 			<div className='px-5 md:px-8 md:pt-3 lg:px-35 lg:pt-10'>
 				<GoBackBtn />
 				<div className='flex max-md:flex-col md:justify-between gap-6 md:gap-12 md:items-center'>
@@ -74,11 +81,39 @@ const ProductDetail = () => {
 								decreaseQuantity={() => setQuantity((q) => Math.max(1, q - 1))}
 								quantity={quantity}
 							/>
+
 							<button
-								className='border transition-colors duration-300 border-orange-dark text-white bg-orange-dark subtitle w-[160px] h-[48px] cursor-pointer hover:bg-orange-light hover:border-orange-light'
+								className={`border transition-colors duration-300 ease-in-out  text-white  subtitle w-[160px] h-[48px] cursor-pointer   ${
+									isAdded
+										? 'bg-[#008000] border-[#008000]'
+										: 'border-orange-dark bg-orange-dark hover:bg-orange-light hover:border-orange-light'
+								}`}
 								onClick={handleAddToCart}>
-								ADD TO CART
+								{isAdded ? 'ADDED' : 'ADD TO CART'}
 							</button>
+							{isAdded && (
+								<motion.div
+									className='fixed top-0 right-0 lg:right-15 md rounded-md bg-gray-light  opacity-50 z-22'
+									initial={{ opacity: 0 }}
+									animate={{
+										opacity: [1, 1, 0],
+										scale: 0.2,
+										transition: {
+											duration: 1.5,
+											ease: 'easeInOut',
+										},
+									}}
+									transition={{
+										duration: 3,
+										ease: 'easeInOut',
+									}}>
+									<img
+										src={product.image?.[imageType]}
+										alt='product image'
+										className='w-35 h-35 md:h-48 lg:h-35'
+									/>
+								</motion.div>
+							)}
 						</div>
 					</motion.div>
 				</div>
@@ -151,11 +186,11 @@ const ProductDetail = () => {
 					</div>
 					<div
 						className='col-span-3
-					row-span-1'>
+					'>
 						<motion.img
 							src={product.gallery.third.tablet}
 							alt='other image'
-							className='rounded-md h-full'
+							className='rounded-md h-full w-full'
 							initial={{ x: '100%', opacity: 0 }}
 							whileInView={{ x: 0, opacity: 1 }}
 							transition={{

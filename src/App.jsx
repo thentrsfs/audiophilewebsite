@@ -9,19 +9,17 @@ import CartContext from './context/CartContext';
 import FormContext from './context/FormContext';
 
 function App() {
-	const { isOpen, isCartOpen } = useContext(CartContext);
+	const { isOpen } = useContext(CartContext);
 	const { isPaid } = useContext(FormContext);
 
 	return (
 		<div className='overflow-x-hidden'>
 			<ScrollToTop />
-			{isCartOpen || isOpen || isPaid ? (
+			{isOpen || isPaid ? (
 				<div className='fixed inset-0 bg-black opacity-50 z-20'></div>
 			) : null}
-			<div className='absolute top-[90px]  rounded-b-md bg-white w-full z-21 px-5'>
-				{isOpen && <CategoryMenu />}
-			</div>
-			{isCartOpen && <Cart />}
+			{isOpen && <CategoryMenu />}
+			<Cart />
 			<NavMenu />
 			<Outlet />
 			<Footer />
