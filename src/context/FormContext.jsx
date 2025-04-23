@@ -92,7 +92,6 @@ export const FormProvider = ({ children }) => {
 			setErrors(newErrors);
 			window.scrollTo(0, 0);
 		} else {
-			console.log('Form submitted', formData);
 			setSubmitted(true);
 			setIsPaid(true);
 			setFormData(initialFormData);

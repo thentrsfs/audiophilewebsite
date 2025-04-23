@@ -4,6 +4,7 @@ import CategoryMenu from '../components/CategoryMenu';
 import { useNavigate } from 'react-router';
 import CartContext from '../context/CartContext';
 import { useContext } from 'react';
+import { motion } from 'framer-motion';
 
 const Home = () => {
 	const navigate = useNavigate();
@@ -19,7 +20,7 @@ const Home = () => {
 
 	return (
 		<div
-			className='bg-contain bg-no-repeat '
+			className='bg-contain bg-no-repeat overflow-hidden '
 			style={{ backgroundImage: `url(${backgroundImage()})` }}>
 			<div className='flex flex-col gap-7 md:gap-8 px-12 items-center justify-center h-168 md:h-200 2xl:h-250 max-lg:text-center lg:items-start lg:pl-35 '>
 				<h4 className='overline-text text-gray-darker'>NEW PRODUCT</h4>
@@ -41,12 +42,18 @@ const Home = () => {
 				<div>
 					<CategoryMenu />
 				</div>
-				<div className='bg-orange-dark rounded-md flex max-lg:flex-col items-center justify-between lg:justify-around max-lg:pb-12 max-lg:pt-15 max-lg:text-center lg:px-12 h-[600px] text-white relative overflow-hidden'>
+				<motion.div
+					className='bg-orange-dark rounded-md flex max-lg:flex-col items-center justify-between lg:justify-around max-lg:pb-12 max-lg:pt-15 max-lg:text-center lg:px-12 h-[600px] text-white relative overflow-hidden'
+					initial={{ y: '100%' }}
+					whileInView={{ y: 0 }}
+					viewport={{ once: true, margin: '300px' }}
+					transition={{ duration: 0.5 }}>
 					<PatternCircles />
-					<img
+					<motion.img
 						src={`/home/${imageType}/image-speaker-zx9.png`}
 						alt='zx9 speaker'
 						className='w-38 lg:w-100 lg:pt-38 z-20'
+						whileHover={{ scale: 1.05, transition: { duration: 0.5 } }}
 					/>
 					<div className='flex flex-col gap-6 max-lg:items-center justify-center md:w-80'>
 						<h1 className='h1 w-60 pt-3'>ZX9 SPEAKER</h1>
@@ -62,8 +69,13 @@ const Home = () => {
 							text='SEE PRODUCT'
 						/>
 					</div>
-				</div>
-				<div className='relative'>
+				</motion.div>
+				<motion.div
+					className='relative'
+					initial={{ x: '100%' }}
+					whileInView={{ x: 0 }}
+					transition={{ duration: 1 }}
+					viewport={{ once: true }}>
 					<img
 						src={`/home/${imageType}/image-speaker-zx7.jpg`}
 						alt='zx7 speaker'
@@ -79,14 +91,23 @@ const Home = () => {
 							text='SEE PRODUCT'
 						/>
 					</div>
-				</div>
+				</motion.div>
 				<div className='flex max-md:flex-col gap-6 lg:gap-8 md:gap-3'>
-					<img
+					<motion.img
 						src={`/home/${imageType}/image-earphones-yx1.jpg`}
 						alt='yx1 earphones'
+						initial={{ y: '100%' }}
+						whileInView={{ y: 0 }}
+						viewport={{ once: true }}
+						transition={{ duration: 0.7 }}
 						className='rounded-md md:h-[320px] h-[200px] w-full'
 					/>
-					<div className='bg-gray-light md:h-[320px] w-full h-[200px] flex flex-col justify-center rounded-md'>
+					<motion.div
+						className='bg-gray-light md:h-[320px] w-full h-[200px] flex flex-col justify-center rounded-md'
+						initial={{ x: '100%' }}
+						whileInView={{ x: 0 }}
+						viewport={{ once: true }}
+						transition={{ duration: 0.7 }}>
 						<div className='flex flex-col gap-7 pl-6 md:pl-[3rem]'>
 							<h1 className='h4'>YX1 EARPHONES</h1>
 							<PrimaryButton
@@ -97,16 +118,25 @@ const Home = () => {
 								text='SEE PRODUCT'
 							/>
 						</div>
-					</div>
+					</motion.div>
 				</div>
 			</div>
 			<div className='px-5 pb-24 md:px-8 lg:px-35 lg:pt-20 lg:pb-45 flex lg:flex-row-reverse lg:items-center max-lg:flex-col gap-8 max-lg:text-center'>
-				<img
+				<motion.img
 					src={`/shared/${imageType}/image-best-gear.jpg`}
 					alt='best gear image'
 					className='rounded-md'
+					initial={{ y: '100%' }}
+					whileInView={{ y: 0 }}
+					viewport={{ once: true }}
+					transition={{ duration: 0.7 }}
 				/>
-				<div className='flex flex-col gap-7 px-5 md:px-15 lg:px-0 lg:pr-35 lg:gap-4'>
+				<motion.div
+					className='flex flex-col gap-7 px-5 md:px-15 lg:px-0 lg:pr-35 lg:gap-4'
+					initial={{ x: '100%' }}
+					whileInView={{ x: 0 }}
+					viewport={{ once: true }}
+					transition={{ duration: 0.7 }}>
 					<h1 className='custom-footer-header'>
 						Bringing you the <span className='text-orange-dark'>best</span>{' '}
 						audio gear
@@ -119,7 +149,7 @@ const Home = () => {
 						products. Stop by our store to meet some of the fantastic people who
 						make Audiophile the best place to buy your portable audio equipment.
 					</p>
-				</div>
+				</motion.div>
 			</div>
 		</div>
 	);
